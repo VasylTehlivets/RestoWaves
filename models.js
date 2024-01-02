@@ -1,6 +1,11 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("./db");
 
+// Синхронізація бази даних
+sequelize.sync({ force: false }).then(() => {
+  console.log("Database synchronized");
+});
+
 // Оголошуємо модель продукту
 const Product = sequelize.define("Product", {
   model: {
